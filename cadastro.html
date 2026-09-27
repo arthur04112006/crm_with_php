@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulário</title>
+</head>
+<body>
+    <form method="post" action="processaCadastro.php">
+        <input type="text" placeholder="Nome" name="nome" required>
+        <input type="email" placeholder="Email" name="email" required>
+        <input type="text" placeholder="Telefone" name="telefone" autocomplete="address-level2" required>
+        <input type="number" placeholder="CEP" name="cep" required>
+        <input type="text" placeholder="Cidade" name="cidade" required>
+        <input type="text" placeholder="UF" name="uf" required>
+        <input type="text" placeholder="Origem" name="origem" required>
+        <button type="submit">Cadastrar</button>
+    </form>
+</body>
+</html>
