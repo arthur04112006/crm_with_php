@@ -1,0 +1,1 @@
+Projeto para relembrar conceitos de php. Consiste em um mini crm, a base é feita em php usando xampp e futuramente vai usar o framework laravel. Webhook de atualização e consome api externa de cidades. Projeto de cunho educativo e aprendizagem!
