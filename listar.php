@@ -3,6 +3,20 @@ include "conn.php";
 
 $query_de_usuarios = "SELECT * FROM usuarios ORDER BY id DESC";
 $resultado = $conexao->query($query_de_usuarios);
+$busca = $_GET['busca'] ?? '';
+
+if ($busca != '') {
+    $sql = "SELECT * FROM usuarios WHERE nome LIKE ? OR cidade LIKE ? ORDER BY id DESC";
+    $stmt = $conexao->prepare($sql);
+    $termo = "%$busca%";
+    $stmt->bind_param("ss", $termo, $termo);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+} else {
+    $sql = "SELECT * FROM usuarios ORDER BY id DESC";
+    $resultado = $conexao->query($sql);
+}
+
 // $linha = $resultado->fetch_assoc();
 
 // echo $linha["nome"];
@@ -13,7 +27,10 @@ $resultado = $conexao->query($query_de_usuarios);
 // echo $linha["uf"];
 
 ?>
-
+<form method="GET" action="listar.php">
+    <input type="text" name="busca" value="<?php echo $_GET['busca'] ?? ''; ?>">
+    <button type="submit">Buscar</button>
+</form>
 <table border="1">
     <tr>
         <th>Nome</th>
